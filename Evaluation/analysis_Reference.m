@@ -37,7 +37,8 @@ function [EN, SF, SD, PSNR, MSE, MI, VIF, AG, CC, SCD, Qabf, Nabf, SSIM, MS_SSIM
         % SSIM2 = ssim(image_fused,image2);
         SSIM = mef_ssim(imgSeq, image_f);
         Nabf = 1;
-        MS_SSIM = 1;
+        %MS_SSIM
+        [MS_SSIM,t1,t2]= analysis_ms_ssim(imgSeq, image_f);
         FMI_pixel = 1;
         FMI_dct = 1;
         FMI_w = 1; 
@@ -69,7 +70,7 @@ function [EN, SF, SD, PSNR, MSE, MI, VIF, AG, CC, SCD, Qabf, Nabf, SSIM, MS_SSIM
         % %Nabf
         Nabf = analysis_nabf(image_fused, image1, image2);
         %MS_SSIM
-        [MS_SSIM,t1,t2]= analysis_ms_ssim(imgSeq, image_f);
+        MS_SSIM= 1;
         %FMI
         FMI_pixel = analysis_fmi(image1,image2,image_fused);
         FMI_dct = analysis_fmi(image1,image2,image_fused,'dct');
